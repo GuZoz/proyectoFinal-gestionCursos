@@ -53,7 +53,7 @@ public class AdminController {
 		LOG.info("Creando nuevo curso desde el backoffice");
 
 		model.addAttribute("curso", new Curso());
-		return "admin/curso/form";
+		return "admin/form";
 	}
 
 	/**
@@ -66,11 +66,11 @@ public class AdminController {
 	 * @return al form.jsp
 	 */
 	@RequestMapping(value = "/admin/curso/edit/{id}", method = RequestMethod.GET)
-	public String formularioEditar(Model model, @PathVariable() int idCurso) {
-		LOG.info("Editando curso preexistente desde el backoffice. Id curso -> " + idCurso);
+	public String formularioEditar(Model model, @PathVariable() int id) {
+		LOG.info("Editando curso preexistente desde el backoffice. Id curso -> " + id);
 
-		model.addAttribute("curso", this.serviceCurso.buscarPorId(idCurso));
-		return "admin/curso/form";
+		model.addAttribute("curso", this.serviceCurso.buscarPorId(id));
+		return "admin/form";
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class AdminController {
 	 *            de Curso
 	 * @return index.jsp
 	 */
-	@RequestMapping(value = "admin/curso/crear", method = RequestMethod.POST)
+	@RequestMapping(value = "curso/crear", method = RequestMethod.POST)
 	public String crear(Model model, Curso curso) {
 		LOG.info("Creando/modificando registro de curso desde Post");
 		String msg = "Error al modificar/crear el nuevo Curso";
@@ -107,7 +107,7 @@ public class AdminController {
 	 *            de Curso
 	 * @return index.jsp returnea al index
 	 */
-	@RequestMapping(value = "admin/curso/eliminar", method = RequestMethod.POST)
+	@RequestMapping(value = "curso/eliminar", method = RequestMethod.POST)
 	public String eliminar(Model model, Curso curso) {
 		LOG.info("Eliminando registro de curso desde Post");
 		String msg = "Error al eliminar el registro de curso";

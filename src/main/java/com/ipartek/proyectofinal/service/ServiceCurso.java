@@ -14,6 +14,13 @@ public interface ServiceCurso {
 	List<Curso> listar();
 
 	/**
+	 * Método que lista los 10 últimos cursos guardados en la BBDD
+	 * 
+	 * @return - lista de objetos Curso
+	 */
+	List<Curso> listar10Ultimos();
+
+	/**
 	 * Método que devuelve un objeto Curso de la BBDD, correspondiente al
 	 * atributo id, identificador único del registro de curso a devolver, que se
 	 * le pasa como parámetro

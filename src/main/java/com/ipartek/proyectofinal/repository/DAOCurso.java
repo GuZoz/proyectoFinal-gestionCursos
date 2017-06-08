@@ -29,6 +29,14 @@ public interface DAOCurso {
 	List<Curso> getAll();
 
 	/**
+	 * Método que devuelve la lista con los 10 últimos registros de curso de la
+	 * BBDD
+	 * 
+	 * @return - devuelve un Array list de objetos Curso
+	 */
+	List<Curso> getLast10();
+
+	/**
 	 * Método que devuelve el curso correspondiente al atributo id que se le
 	 * pasa como parámetro
 	 * 

@@ -38,7 +38,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 
 		model.addAttribute("serverTime", formattedDate);
-		model.addAttribute("cursos", this.serviceCurso.listar());
+		model.addAttribute("ultimosCursos", this.serviceCurso.listar10Ultimos());
 
 		return "home";
 	}

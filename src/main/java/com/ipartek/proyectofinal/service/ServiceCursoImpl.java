@@ -20,6 +20,11 @@ public class ServiceCursoImpl implements ServiceCurso {
 	}
 
 	@Override
+	public List<Curso> listar10Ultimos() {
+		return this.daoCurso.getLast10();
+	}
+
+	@Override
 	public Curso buscarPorId(long id) {
 		return this.daoCurso.getById(id);
 	}

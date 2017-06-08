@@ -46,6 +46,7 @@ public class DAOCursoImpl implements DAOCurso {
 	}
 
 	private static final String SQL_GET_ALL = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` ORDER BY `id` DESC LIMIT 500;";
+	private static final String SQL_GET_LAST_10 = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` ORDER BY `id` DESC LIMIT 10;";
 	private static final String SQL_GET_BY_ID = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` WHERE `id` = ?;";
 	private static final String SQL_INSERT = "INSERT INTO `curso` (`nom_curso`) VALUES (?);";
 	private static final String SQL_UPDATE = "UPDATE `curso` SET `nom_curso`= ?, `cod_curso`= ? WHERE `id`= ?;";
@@ -56,6 +57,19 @@ public class DAOCursoImpl implements DAOCurso {
 		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		try {
 			listaCursos = (ArrayList<Curso>) this.jdbcTemplate.query(SQL_GET_ALL, new CursoMapper());
+		} catch (EmptyResultDataAccessException e) {
+			this.LOGGER.warn("No existen cursos todavia");
+		} catch (Exception e) {
+			this.LOGGER.error(e.getMessage());
+		}
+		return listaCursos;
+	}
+
+	@Override
+	public List<Curso> getLast10() {
+		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
+		try {
+			listaCursos = (ArrayList<Curso>) this.jdbcTemplate.query(SQL_GET_LAST_10, new CursoMapper());
 		} catch (EmptyResultDataAccessException e) {
 			this.LOGGER.warn("No existen cursos todavia");
 		} catch (Exception e) {

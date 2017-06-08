@@ -37,6 +37,17 @@ public interface DAOCurso {
 	List<Curso> getLast10();
 
 	/**
+	 * Método que devuelve la lista con los registros de curso de la BBDD
+	 * correspondientes al texto a filtrar pasado como parámetro. Este método
+	 * filtrará contra los campos nom_curso y cod_curso de la tabla Curso
+	 *
+	 * @param textoFiltrar
+	 *            parámetro (variable de tipo string) a filtrar
+	 * @return - devuelve un Array list de objetos Curso
+	 */
+	List<Curso> getSearch(String textoFiltrar);
+
+	/**
 	 * Método que devuelve el curso correspondiente al atributo id que se le
 	 * pasa como parámetro
 	 * 

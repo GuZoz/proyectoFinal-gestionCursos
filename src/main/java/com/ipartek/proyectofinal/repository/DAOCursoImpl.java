@@ -47,8 +47,9 @@ public class DAOCursoImpl implements DAOCurso {
 
 	private static final String SQL_GET_ALL = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` ORDER BY `id` DESC LIMIT 500;";
 	private static final String SQL_GET_LAST_10 = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` ORDER BY `id` DESC LIMIT 10;";
+	private static final String SQL_GET_ALL_FILTER = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` WHERE `nom_curso` LIKE '%' ? '%' OR `cod_curso` LIKE '%' ? '%' ORDER BY `id` DESC LIMIT 500;";
 	private static final String SQL_GET_BY_ID = "SELECT `id`, `nom_curso`, `cod_curso` FROM `curso` WHERE `id` = ?;";
-	private static final String SQL_INSERT = "INSERT INTO `curso` (`nom_curso`) VALUES (?);";
+	private static final String SQL_INSERT = "INSERT INTO `curso` (`nom_curso`, `cod_curso`) VALUES (?, ?);";
 	private static final String SQL_UPDATE = "UPDATE `curso` SET `nom_curso`= ?, `cod_curso`= ? WHERE `id`= ?;";
 	private static final String SQL_DELETE = "DELETE FROM `curso` WHERE `id` = ?;";
 
@@ -79,6 +80,28 @@ public class DAOCursoImpl implements DAOCurso {
 	}
 
 	@Override
+	public List<Curso> getSearch(String textoFiltrar) {
+
+		ArrayList<Curso> listaBusqueda = new ArrayList<Curso>();
+
+		try {
+			listaBusqueda = (ArrayList<Curso>) this.jdbcTemplate.query(SQL_GET_ALL_FILTER,
+					new Object[] { textoFiltrar, textoFiltrar }, new CursoMapper());
+
+		} catch (EmptyResultDataAccessException e) {
+
+			this.LOGGER.warn("No existen cursos todavia");
+
+		} catch (Exception e) {
+
+			this.LOGGER.error(e.getMessage());
+
+		}
+
+		return listaBusqueda;
+	}
+
+	@Override
 	public Curso getById(long id) {
 		Curso curso = null;
 		try {
@@ -104,6 +127,7 @@ public class DAOCursoImpl implements DAOCurso {
 				public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 					final PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 					ps.setString(1, curso.getNomCurso());
+					ps.setString(2, curso.getCodCurso());
 					return ps;
 				}
 			}, keyHolder);

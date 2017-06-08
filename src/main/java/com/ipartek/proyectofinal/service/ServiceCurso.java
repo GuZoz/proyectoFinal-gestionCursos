@@ -21,6 +21,17 @@ public interface ServiceCurso {
 	List<Curso> listar10Ultimos();
 
 	/**
+	 * Método que devuelve la lista con los cursos de la BBDD correspondientes
+	 * al texto a filtrar pasado como parámetro. Este método filtrará contra los
+	 * campos nomCurso y codCurso de los cursos guardados
+	 *
+	 * @param textoFiltrar
+	 *            parámetro (variable de tipo string) a filtrar
+	 * @return - devuelve un Array list de objetos Curso
+	 */
+	List<Curso> listarBusqueda(String textoFiltrar);
+
+	/**
 	 * Método que devuelve un objeto Curso de la BBDD, correspondiente al
 	 * atributo id, identificador único del registro de curso a devolver, que se
 	 * le pasa como parámetro

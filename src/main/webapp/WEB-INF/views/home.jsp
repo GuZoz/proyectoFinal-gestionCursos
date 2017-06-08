@@ -32,7 +32,7 @@
 		</c:if>
 	</div>
 	
-	<p> El tiempo en el servidor es ${serverTime}. </p>
+
 	
 	<!-- Script para js de Bootstrap -->
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>

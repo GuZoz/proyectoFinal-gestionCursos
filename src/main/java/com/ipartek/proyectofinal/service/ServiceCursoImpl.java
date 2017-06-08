@@ -25,6 +25,11 @@ public class ServiceCursoImpl implements ServiceCurso {
 	}
 
 	@Override
+	public List<Curso> listarBusqueda(String textoFiltrar) {
+		return this.daoCurso.getSearch(textoFiltrar);
+	}
+
+	@Override
 	public Curso buscarPorId(long id) {
 		return this.daoCurso.getById(id);
 	}

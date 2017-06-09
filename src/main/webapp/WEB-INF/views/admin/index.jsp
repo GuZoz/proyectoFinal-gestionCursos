@@ -27,6 +27,7 @@
 	<h1>Backoffice - Gestión de Cursos</h1>
 			
 	<span><a href="" class="btn btn-default">Front Office</a></span>
+	<span><a href="logout" class="btn btn-default">Logout</a></span>
 
 	<c:if test="${not empty msg}">
 		<div class="alert alert-success alert-dismissable">

@@ -127,6 +127,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- JSON - Java Script Object Notation -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.11</version>
+		</dependency>
+		
 		<!-- Persistence (JDBC + MySQL) -->					
 		<dependency>
 		    <groupId>org.springframework</groupId>

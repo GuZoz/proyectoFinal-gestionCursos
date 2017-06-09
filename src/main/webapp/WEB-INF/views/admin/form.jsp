@@ -56,7 +56,7 @@
 	</form:form>
 		
 
- 	<!-- Script para Ajax de libreria JQuery TODO ver si hace falta -->
+ 	<!-- Script de libreria JQuery para Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
  	<!-- Script para js de Bootstrap -->

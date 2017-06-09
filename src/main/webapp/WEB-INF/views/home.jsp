@@ -34,7 +34,7 @@
 			<h2>Ultimos Cursos</h2>
 			<ol>
 				<c:forEach items="${ultimosCursos}" var="curso">
-					<li>${curso.nomCurso} - ${curso.codCurso}</li>
+					<a href="detail/${curso.id}"><li>${curso.nomCurso} - ${curso.codCurso}</li></a>
 				</c:forEach>
 			</ol>
 		</c:if>

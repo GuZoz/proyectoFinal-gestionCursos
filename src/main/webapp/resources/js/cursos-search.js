@@ -14,7 +14,7 @@ $(function() {
           success: function( data ) {
         	var aString = [];
             $.each(data, function(index, curso){
-            	aString.push({"label":curso.nombre, "value":curso.id});
+            	aString.push({"label":curso.nomCurso, "value":curso.id});
         	});
             response( aString );
           }

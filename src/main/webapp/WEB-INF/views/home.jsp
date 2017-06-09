@@ -17,9 +17,20 @@
 	<link href="resources/css/custom-frontoffice.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Gestión de Cursos</h1>
+	<header>
+		<div class="nav-container">
+			<h1>Gestión de Cursos</h1>
+			<nav>
+				<ul>
+				<li class="nav-button" ><a href="" >Home</a></li>
+				<li class="nav-button"><a href="admin" >Back Office</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 	
-	<span><a href="admin" class="btn btn-default">Back Office</a></span>
+	
+	
 	
 	<div class="input-group">
 

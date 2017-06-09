@@ -32,7 +32,7 @@ public class AdminController {
 	private ServiceCurso serviceCurso;
 
 	/**
-	 * Listar todos los cursos
+	 * Método de AdminController que lista todos los cursos
 	 * 
 	 * @param model
 	 *            atributos para la vista
@@ -55,10 +55,11 @@ public class AdminController {
 	}
 
 	/**
-	 * Abre el formulario con un curso nuevo para poder crearlo
+	 * Método de AdminController que abre el formulario con un curso nuevo para
+	 * poder crearlo
 	 * 
 	 * @param model
-	 *            admin
+	 *            atributos para la vista
 	 * @return al form.jsp
 	 */
 	@RequestMapping(value = "/admin/curso/edit", method = RequestMethod.GET)
@@ -70,10 +71,11 @@ public class AdminController {
 	}
 
 	/**
-	 * Abre el formulario con un registro de curso para modificarlo/eliminarlo
+	 * Método de AdminController que abre el formulario con un registro de curso
+	 * para modificarlo/eliminarlo
 	 * 
 	 * @param model
-	 *            formulario
+	 *            atributos para la vista
 	 * @param id
 	 *            de curso
 	 * @return al form.jsp
@@ -87,13 +89,14 @@ public class AdminController {
 	}
 
 	/**
-	 * Llama al servicio para crear o modificar el curso
+	 * Método de AdminController que llama al servicio para crear o modificar el
+	 * curso
 	 * 
 	 * @param model
-	 *            del formulario
+	 *            atributos para la vista
 	 * @param curso
 	 *            de Curso
-	 * @return index.jsp
+	 * @return index.jsp vuelve al index de admin
 	 */
 	@RequestMapping(value = "curso/crear", method = RequestMethod.POST)
 	public String crear(Model model, Curso curso) {
@@ -112,13 +115,13 @@ public class AdminController {
 	}
 
 	/**
-	 * Elimina al entrada de curso
+	 * Método de AdminController que elimina al entrada de curso
 	 * 
 	 * @param model
-	 *            model de modelo
+	 *            atributos para la vista
 	 * @param curso
 	 *            de Curso
-	 * @return index.jsp returnea al index
+	 * @return index.jsp vuelve al index de admin
 	 */
 	@RequestMapping(value = "curso/eliminar", method = RequestMethod.POST)
 	public String eliminar(Model model, Curso curso) {
@@ -130,6 +133,23 @@ public class AdminController {
 		model.addAttribute("msg", msg);
 		model.addAttribute("curso", new Curso());
 		model.addAttribute("cursos", this.serviceCurso.listar());
+		return "admin/index";
+	}
+
+	/**
+	 * Método de AdminController que vuelca las entradas de un csv a la BBDD
+	 * 
+	 * @param model
+	 *            atributos para la vista
+	 * @return index.jsp vuelve al index de admin
+	 */
+	@RequestMapping(value = "/admin/migrar", method = RequestMethod.GET)
+	public String migrarCSVaBBDD(Model model) {
+
+		this.serviceCurso.migrarCSV("c:\\cursos.csv");
+
+		model.addAttribute("cursos", this.serviceCurso.listar());
+
 		return "admin/index";
 	}
 

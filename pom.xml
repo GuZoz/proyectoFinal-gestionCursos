@@ -127,6 +127,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- openCSV - libreria para tratar csv Java e integrar en BBDD -->
+		<dependency>
+     		<groupId>com.opencsv</groupId>
+     		<artifactId>opencsv</artifactId>
+     		<version>3.9</version>
+  		</dependency>
+		
 		<!-- JSON - Java Script Object Notation -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>

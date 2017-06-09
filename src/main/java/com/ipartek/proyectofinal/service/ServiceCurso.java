@@ -79,4 +79,13 @@ public interface ServiceCurso {
 	 */
 	boolean eliminar(long id);
 
+	/**
+	 * Método que migra un fichero csv con los registros de cursos a la BBDD de
+	 * gestion de cursos
+	 * 
+	 * @param rutaAcceso
+	 *            variable string con la ruta de acceso al archivo csv a migrar
+	 */
+	void migrarCSV(String rutaAcceso);
+
 }

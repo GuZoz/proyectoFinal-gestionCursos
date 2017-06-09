@@ -60,6 +60,12 @@
 		</table>
 	</div>
 	
+	<hr>
+	
+	<span><a href="admin/migrar" class="btn btn-default">
+	Migrar
+	</a></span>
+	
 	<p> El tiempo en el servidor es ${serverTime}. </p>		
 
 	<!-- Script de libreria JQuery para Bootstrap -->

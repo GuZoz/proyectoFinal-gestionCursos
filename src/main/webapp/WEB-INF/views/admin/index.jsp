@@ -22,104 +22,109 @@
 	
 	<!-- Estilos de dataTables - Para index del Backoffice -->
 	<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
+	
+	<!-- Estilos para el autocomplete -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
 </head>
 <body>
-	<h1>Backoffice - Gestión de Cursos</h1>
+	
+	<header>
+		<nav class="navbar navbar-default navbar-custom navbar-static-top">
+   			<div class="container">
+   				<div class="navbar-header navbar-header-custom">
+   					<h1>Back Office</h1>
+    			</div>
+    			<form class="navbar-form navbar-left">
+	    			<div class="input-group navbar-search-custom">
+				       	<label for="buscadorCursosBO" class="input-group-addon">Buscar:</label>
+				       	<input type="text" id="buscadorCursosBO" class="form-control" size="20" placeholder="Buscar en la BBDD"> 
+				    </div>
+			    </form>
+   				<ul class="nav navbar-nav navbar-nav-custom navbar-right">
+					<li><a href="" class="navbar-btn-custom">Home</a></li>
+					<li><a href="logout" class="navbar-btn-custom">Logout</a></li>
+				</ul>
+  			</div>
+		</nav>
+	</header>
+	
+	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-8 col-sm-12">
+	
+				<c:if test="${not empty msg}">
+					<div class="alert alert-success alert-dismissable">
+			 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			 				${msg}
+					</div>
+				</c:if>
 			
-	<span><a href="" class="btn btn-default">Front Office</a></span>
-	<span><a href="logout" class="btn btn-default">Logout</a></span>
-
-	<c:if test="${not empty msg}">
-		<div class="alert alert-success alert-dismissable">
- 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- 				${msg}
+				<div  id="widget-listado-bo">
+					<h2>Panel de listado de cursos</h2>
+					<h3> - 500 últimos cursos - </h3>
+					<table class="tablePlugin" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nombre del Curso</th>
+								<th>Código del Curso</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${cursos}" var="curso">
+							<tr>
+								<td>${curso.id}</td>
+								<td><a href="admin/curso/edit/${curso.id}">${curso.nomCurso}</a></td>
+								<td>${curso.codCurso}</td>
+							</tr>		
+							</c:forEach>
+						</tbody>	
+					</table>
+				</div>
+			</div>
+			<!-- Fin de la columna que contiene el widget de listado -->
+		
+			<div class="col-md-3 col-sm-12">
+				<div class="row">
+					
+					<div class="col-md-11 col-sm-5" id="widget-creacion-bo">
+						<h2>Panel de nuevo curso</h2>
+						<a href="admin/curso/edit" class="btn-widget-backoffice">Crear nuevo curso</a>
+					</div>
+					
+					<div class="col-md-11 col-sm-5" id="widget-migracion-bo">
+						<h2>Panel de migración de BBDD</h2>
+						<span>
+						<a href="admin/migrar" class="btn-widget-backoffice">Migrar</a>
+						</span>
+					</div>
+					
+				</div>
+			</div>
 		</div>
-	</c:if>
-
-	
-	<a href="admin/curso/edit" class="btn btn-default">Crear nuevo curso</a>
-	
-	<div>
-		<h2>Listado de Cursos</h2>
-		<table class="tablePlugin" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Nombre del Curso</th>
-					<th>Código del Curso</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${cursos}" var="curso">
-				<tr>
-					<td>${curso.id}</td>
-					<td><a href="admin/curso/edit/${curso.id}">${curso.nomCurso}</a></td>
-					<td>${curso.codCurso}</td>
-				</tr>		
-				</c:forEach>
-			</tbody>	
-		</table>
 	</div>
-	
-	<hr>
-	
-	<span><a href="admin/migrar" class="btn btn-default">
-	Migrar
-	</a></span>
 	
 	<p> El tiempo en el servidor es ${serverTime}. </p>		
 
 	<!-- Script de libreria JQuery para Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    
-    <!-- Script del dataTable -->
- 	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
  	
  	<!-- Script para js de Bootstrap -->
  	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
-    <!-- Scripts para dataTable -->
+    <!-- Script de jquery para dataTable -->
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     
-	<script>
-var castellano = {
-	    "sProcessing":     "Procesando...",
-	    "sLengthMenu":     "Mostrar _MENU_ registros",
-	    "sZeroRecords":    "No se encontraron resultados",
-	    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-	    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-	    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-	    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-	    "sInfoPostFix":    "",
-	    "sSearch":         "Buscar:",
-	    "sUrl":            "",
-	    "sInfoThousands":  ",",
-	    "sLoadingRecords": "Cargando...",
-	    "oPaginate": {
-	        "sFirst":    "Primero",
-	        "sLast":     "Último",
-	        "sNext":     "Siguiente",
-	        "sPrevious": "Anterior"
-	    },
-	    "oAria": {
-	        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-	        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-	    }
-	};
-
-
-
-//Esperara a que todo el DOM este cargado
-$(document).ready(function() {
+    <!-- Script del datatable -->
+	<script src="resources/js/datatable.js"></script>
 	
-    $('.tablePlugin').DataTable({
-    		language: castellano,
-    		order:[]
-    });
-    
-    
-});//$(document).ready
-</script>
+	<!-- Script para js de jquery-ui para el autocomplete del buscador -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- Script del buscador de cursos del backoffice-->
+	<script src="resources/js/cursos-search-backoffice.js"></script>
+	
 </body>
 </html>
 	

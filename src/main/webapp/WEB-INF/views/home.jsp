@@ -15,43 +15,66 @@
 	
 	<!-- Estilos custom del Frontoffice -->
 	<link href="resources/css/custom-frontoffice.css" rel="stylesheet">
+	
+	<!-- Google Fonts - lobster -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
 </head>
-<body>
+<body class="bg-img-main">
 	<header>
-		<div class="nav-container">
-			<h1>Gestión de Cursos</h1>
-			<nav>
-				<ul>
-				<li class="nav-button" ><a href="" >Home</a></li>
-				<li class="nav-button"><a href="admin" >Back Office</a></li>
+		<nav class="navbar navbar-default navbar-custom navbar-static-top">
+   			<div class="container">
+   				<div class="navbar-header navbar-header-custom">
+   					<h1 >Gestión de Cursos</h1>
+    			</div>
+   				<ul class="nav navbar-nav navbar-nav-custom navbar-right">
+					<li><a class="navbar-btn-custom" href="" >Home</a></li>
+					<li><a class="navbar-btn-custom" href="admin" >Login</a></li>
 				</ul>
-			</nav>
-		</div>
+  			</div>
+		</nav>
 	</header>
 	
-	
-	
-	
-	<div class="input-group">
-
-       <label for="buscadorCursos" class="input-group-addon"><span class="glyphicon glyphicon-search"></span>&nbsp;Buscar:&nbsp;</label>
-
-       <input type="text" id="buscadorCursos" class="form-control" size= 55 placeholder="Buscar un curso"> 
-
-    </div>
-	
-	<div>
-		<c:if test="${ultimosCursos.size()>0 }">
-			<h2>Ultimos Cursos</h2>
-			<ol>
-				<c:forEach items="${ultimosCursos}" var="curso">
-					<a href="detail/${curso.id}"><li>${curso.nomCurso} - ${curso.codCurso}</li></a>
-				</c:forEach>
-			</ol>
-		</c:if>
-		<c:if test="${ultimosCursos.size()== 0}">
-			<h2> No hay cursos </h2>
-		</c:if>
+	<div class="container-fluid">
+  		<div class="row">
+  		
+			<div class="col-md-6 col-sm-5" id="widget-buscador">
+				<h2>Buscador de cursos</h2>
+				<div class="input-group input-group-custom">
+			       	<label for="buscadorCursos" class="input-group-addon">Buscar:</label>
+			       	<input type="text" id="buscadorCursos" class="form-control" size= 55 placeholder="Buscar un curso"> 
+			    </div>
+			</div>
+		
+			<div class="col-md-6 col-sm-7" id="widget-lista-ultimos">
+				<div>
+					<c:if test="${ultimosCursos.size()>0 }">
+					<h2>Ultimos Cursos</h2>
+					<c:set var="contador" value="0" scope="page" />
+					<ol>
+						<c:forEach items="${ultimosCursos}" var="curso">
+						<c:set var="contador" value="${contador + 1}" scope="page"/>
+					
+						<a class="list-anchor" href="detail/${curso.id}">
+							<div class="container-li">
+								<li class="list-item">
+									<div class="list-number">${contador}</div>
+									<div class="list-content">
+										<div><p class="list-line">${curso.nomCurso}</p> </div>
+										<div><p class="list-line"><strong>Código # ${curso.codCurso}</strong></p></div>
+									</div>
+								</li>
+							</div>
+						</a>
+					
+						</c:forEach>
+					</ol>
+					</c:if>
+					<c:if test="${ultimosCursos.size()== 0}">
+					<h3> Ups! Hay un problema que impide mostrar los últimos cursos </h3>
+					</c:if>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<!-- Script de libreria JQuery para Bootstrap -->

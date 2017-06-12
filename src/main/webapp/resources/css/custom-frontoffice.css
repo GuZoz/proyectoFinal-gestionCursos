@@ -1,24 +1,234 @@
-header {
-	background-color: green;
-	width: 100%;
-	min-height: 70px;
+/* Estilos generales y del home del front office
+************************************************************/
+
+body {
+	background-color: rgb(120, 160, 160);   
+    font-family: 'Georgia', cursive;
 }
 
-div.nav-container {
+body.bg-img-main {
+	background-image: url("../img/gcursos-bg-main.jpg");
+	background-attachment: fixed;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.navbar-custom {
+    color: rgb(255, 255, 170);
+    border-bottom: solid 2px rgb(255, 255, 170);
+    background-color: rgb(120, 160, 160);
+}
+
+.navbar-header-custom {
+	font-family: 'Lobster', cursive;
+	margin-left: 10% !important;
+}
+
+.navbar-nav-custom{
+   margin-right: 8% !important;
+   margin-left: 8% !important;
+}
+
+h1 {
+	font-size: 2.8em;
+}
+
+.navbar-btn-custom {
+	border: solid 2px rgb(255, 255, 170);
+	border-radius: 30px;
+	margin: 10px;
+	font-size: 1.5em;
+	color: rgb(255, 255, 170) !important;
+}
+
+.navbar-btn-custom:hover {
+	color: rgb(120, 160, 160) !important;
+	background-color: rgb(255, 255, 170) !important;
+}
+
+h2 {
+	color: white;
+	text-align: center;
+	text-decoration: underline;
+	font-style: italic;
+	margin-bottom: 30px;
+}
+
+#widget-buscador {
+	padding: 20px 25px 50px 50px;
+}
+
+.input-group-custom {
+	max-width: 500px;
+	margin: auto;
+}
+
+.input-group-custom label {
+	color: rgb(255, 255, 170);
+	background-color: rgb(120, 160, 160);
+	border: solid 2px rgb(255, 255, 170);
+	border-radius: 30px;
+}
+
+.input-group-custom input {
+	border-radius: 30px;
+}
+
+#widget-lista-ultimos {
+	padding: 20px 50px 50px 25px;
+	max-width: 700px;
+}
+
+ol {
+	list-style: none; 
+	counter-reset: li;
+	margin-left: 10px; 
+	padding-left: 0;
+}
+
+div.container-li {
+	background-color: rgba(255,255,255, 0.75);
+	color: black;
+	margin: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+div.container-li:hover {	
+	background-color: rgba(120, 160, 160, 0.75);
+	color: rgb(255, 255, 170);
+}
+
+a.list-anchor:hover {
+	text-decoration: none;
+}
+
+li.list-item {
+	display: flex;
+	flex-direction: row;
+
+}
+
+li.list-item div.list-number {
+	font-size: 2.5em;
+	padding: 10px; 
+	margin-right: 10px;
+}
+
+li.list-item div.list-content {
+	display: flex;
+	flex-direction: column;
+ 	padding: 5px; 
+}
+
+p.list-line {
+	font-size: 1.3em;
+}
+
+/* Estilos de la vista de detalle
+************************************************************/
+
+body.bg-img-detail {
+	background-image: url("../img/gcursos-bg-detail.jpg");
+	background-attachment: fixed;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+div.container-detail-title {
 	margin: 0 auto;
-	width: 80%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	margin-top: 15px;
+	max-width: 750px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 50px;
+	padding: 5px 20px 5px 20px;
 }
 
-div nav ul {
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	justify-content: center;
+h2.detail-title {
+	color: black;
 }
 
-div nav ul li {
-	background-color: yellow;
+div.container-detail {
+	margin: 0 auto;
+	max-width: 750px;
+	margin-top: 200px;
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius: 10px;
+	padding: 20px;
+	font-size: 1.3em;
+}
+
+hr.hr-detail {
+	border-color: black;
+}
+
+/* Estilos de vistas de login
+************************************************************/
+
+div.container-login-circle {
+	background-image: url("../img/gcursos-bg-login.jpg");
+    background-position: center; 
+    background-repeat: no-repeat;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 450px;
+	height: 450px;
+	border: solid 2px rgb(255, 255, 170);
+	border-radius: 100%;
+	padding: 85px;
+}
+
+input.btn-login-validar {
+	margin-left: 85px;
+	padding: 10px 15px 10px 15px;
+	border: solid 2px rgb(255, 255, 170);
+	border-radius: 30px;
+	font-size: 1.5em;
+	color: rgb(255, 255, 170);
+	background-color: rgb(120, 160, 160);
+}
+
+input.btn-login-validar:hover {
+	color: rgb(120, 160, 160);
+	background-color: rgb(255, 255, 170);
+}
+
+div.container-login-redirect {
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius: 10px;
+	padding: 5px 20px 5px 20px;
+	font-size: 1.2em;
+}
+
+a.btn-login-redirect {
+	display: inline-block;
+	margin-left: 95px;
+	margin-top: 20px;
+	padding: 10px 15px 10px 15px;
+	border: solid 2px rgb(255, 255, 170);
+	border-radius: 30px;
+	font-size: 1.5em;
+	color: rgb(255, 255, 170);
+	background-color: rgb(120, 160, 160);
+}
+
+a.btn-login-redirect:hover {
+	color: rgb(120, 160, 160);
+	background-color: rgb(255, 255, 170);
+	text-decoration: none;
+}
+
+/* Estilos del menu de autocomplete del frontoffice
+***************************************************/
+
+.ui-menu {
+	z-index: 1000 !important;
+	background-color: rgba(255,255,255, 0.8) !important;
+}
+
+.ui-state-hover, .ui-state-active {
+	background-color: rgba(120, 160, 160, 0.8) !important;
+	color: rgb(255, 255, 170) !important;
+	border: rgb(255, 255, 170) !important;
 }

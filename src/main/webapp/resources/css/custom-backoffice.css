@@ -1,0 +1,161 @@
+/* Estilos generales y del index del backoffice
+************************************************************/
+
+body {
+	background-color: #7a96ea; /*light navy blue*/
+	color: navy;
+	font-family: 'Georgia', cursive;
+}
+
+.navbar-custom {
+    color: pink;
+    border-bottom: solid 2px pink;
+    background-color: mediumblue;
+}
+
+.navbar-header-custom {
+	font-family: 'Georgia', cursive;
+	margin-left: 8% !important;
+	margin-right: 8% !important;
+}
+
+.navbar-nav-custom{
+   margin: 0 auto !important;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+.navbar-search-custom {
+	margin: 15px 10px 10px 10px;
+}
+
+.navbar-search-custom label {
+	color: pink;
+	background-color: mediumblue;
+	border: solid 2px pink;
+	border-radius: 5px;
+}
+
+.navbar-search-custom input {
+	border-radius: 5px;
+}
+
+.navbar-btn-custom {
+	border: solid 2px pink;
+	border-radius: 5px;
+	padding: 7px 15px 7px 15px !important;
+	margin: 20px 10px 10px 10px;
+	font-size: 1.5em;
+	color: pink !important;
+}
+
+.navbar-btn-custom:hover {
+	color: navy !important;
+	background-color: pink !important;
+}
+
+h2 {
+	
+	text-decoration: underline;
+	font-size: 1.8em;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 1.4em;
+}
+
+#widget-listado-bo {
+	text-align: center;
+	background-color: rgba(255,200,210, 0.6);
+	border-radius: 5px;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+}
+
+#widget-creacion-bo {
+	text-align: center;
+	background-color: rgba(255,200,210, 0.6);
+	border-radius: 5px;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+}
+
+#widget-migracion-bo {
+	text-align: center;
+	background-color: rgba(255,200,210, 0.6);
+	border-radius: 5px;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+}
+
+.btn-widget-backoffice {
+	display: inline-block;
+	border: solid 2px pink;
+	border-radius: 5px;
+	padding: 7px 15px 7px 15px;
+	margin-top: 20px;
+	font-size: 1.1em;
+	color: pink;
+	background-color: mediumblue;;
+}
+
+.btn-widget-backoffice:hover {
+	color: mediumblue;
+	background-color: pink;
+	text-decoration: none;
+}
+
+
+/* Estilos formulario del backoffice
+************************************************************/
+
+.container-form {
+	margin: 0 auto;
+	max-width: 750px;
+	margin-top: 100px;
+	background-color: rgba(255,200,210, 0.6) !important;
+	border-radius: 5px;
+	padding: 40px;
+	font-size: 1.3em;
+}
+
+hr {
+	border-color: navy;
+}
+
+.form-custom {
+	margin-bottom: 20px;
+}
+
+.btn-widget-bo-delete {
+	display: inline-block;
+	border: solid 2px pink;
+	border-radius: 5px;
+	padding: 7px 15px 7px 15px;
+	margin-top: 20px;
+	font-size: 1.1em !important;
+	color: pink;
+	background-color: red;
+}
+
+.btn-widget-bo-delete:hover {
+	color: mediumblue;
+	background-color: pink;
+	text-decoration: none;
+}
+
+/* Estilos autocomplete
+*********************************************/
+
+.ui-menu {
+	z-index: 1000 !important;
+	background-color: rgba(122,150,234, 0.9) !important;  /*  #7a96ea  light navy blue*/
+}
+
+.ui-state-hover, .ui-state-active {
+	background-color: pink !important; 
+	color: mediumblue !important;
+}

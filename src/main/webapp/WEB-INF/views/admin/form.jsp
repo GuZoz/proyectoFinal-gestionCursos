@@ -20,41 +20,57 @@
 	<!-- Estilos custom del Backoffice -->
 	<link href="resources/css/custom-backoffice.css" rel="stylesheet">
 	
-	<!-- Estilos de dataTables - Para index del Backoffice -->
-	<link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
-	<span><a href="admin" class="btn btn-default">Volver</a></span>
+
+	<header>
+		<nav class="navbar navbar-default navbar-custom navbar-static-top">
+   			<div class="container">
+   				<div class="navbar-header navbar-header-custom">
+   					<h1>Formulario de Cursos</h1>
+    			</div>
+   				<ul class="nav navbar-nav navbar-nav-custom navbar-right">
+					<li><a href="admin" class="navbar-btn-custom">Volver</a></li>
+				</ul>
+  			</div>
+		</nav>
+	</header>
+	
 	<c:if test="${not empty msg}">
 		<div class="alert alert-success alert-dismissable">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			${msg}
 		</div>
 	</c:if>
-	<h1>Backoffice - CRUD de Cursos</h1>
-	<form:form action="curso/crear" modelAttribute="curso">
-		<label>Id:</label>
-		<form:input class="form-control" path="id" readonly="true"/>
-		<label>Nombre del Curso:</label>
-		<form:input class="form-control" path="nomCurso"/>
-		<form:errors path="nomCurso" cssStyle="color:red;"/>
-		<label>Código del Curso:</label>
-		<form:input class="form-control" path="codCurso"/>
-		<c:choose>
-			<c:when test="${curso.id == -1}">
-				<form:button type="submit" class="btn btn-primary">Crear</form:button>
-			</c:when>
-			<c:otherwise>
-				<form:button type="submit" class="btn btn-primary">Modificar</form:button>
-			</c:otherwise>
-		</c:choose>
-	</form:form>
 	
-	<form:form action="curso/eliminar" modelAttribute="curso">
-		<form:hidden path="id"/>
-		<form:button type="submit" class="btn btn-danger">Eliminar</form:button>
-	</form:form>
-		
+	<div class="container-fluid">
+		<div class="container-form">
+	
+			<form:form action="curso/crear" modelAttribute="curso">
+				<label>Id:</label>
+				<form:input class="form-control form-custom" path="id" readonly="true"/>
+				<label>Nombre del Curso:</label>
+				<form:input class="form-control form-custom" path="nomCurso"/>
+				<form:errors path="nomCurso" cssStyle="color:red;"/>
+				<label>Código del Curso:</label>
+				<form:input class="form-control form-custom" path="codCurso"/>
+				<hr>
+				<c:choose>
+					<c:when test="${curso.id == -1}">
+						<form:button type="submit" class="btn-widget-backoffice">Crear</form:button>
+					</c:when>
+					<c:otherwise>
+						<form:button type="submit" class="btn-widget-backoffice">Modificar</form:button>
+					</c:otherwise>
+				</c:choose>
+			</form:form>
+			<form:form action="curso/eliminar" modelAttribute="curso">
+				<form:hidden path="id"/>
+				<form:button type="submit" class="btn-widget-bo-delete">Eliminar</form:button>
+			</form:form>
+	
+		</div>
+	</div>
 
  	<!-- Script de libreria JQuery para Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

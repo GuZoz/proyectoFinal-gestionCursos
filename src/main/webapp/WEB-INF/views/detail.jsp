@@ -40,7 +40,7 @@
 		</div>
 		
 		<div class="container-detail">	
-			<h3>DescripciÃ³n del curso</h3>
+			<h3>Descripción del curso</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 				incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
@@ -51,8 +51,8 @@
 			</p>
 			<hr class="hr-detail">
 			<ul>
-				<li><strong>CÃ³digo del Curso - </strong> ${curso.codCurso}</li>
-				<li><strong>DuraciÃ³n - </strong> ### Horas</li>
+				<li><strong>Código del Curso - </strong> ${curso.codCurso}</li>
+				<li><strong>Duración - </strong> ### Horas</li>
 				<li><strong>Precio - </strong> $$$ Euros</li>
 			</ul>
 			

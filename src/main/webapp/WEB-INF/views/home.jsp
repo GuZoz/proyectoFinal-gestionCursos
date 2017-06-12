@@ -7,6 +7,9 @@
 	<base href="/proyectofinal/">
 	<title>Home - Gestión de cursos</title>
 	
+	<link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="resources/img/favicon.ico" type="image/x-icon">
+	
 	<!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     

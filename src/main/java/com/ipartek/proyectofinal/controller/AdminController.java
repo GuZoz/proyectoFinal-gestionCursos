@@ -26,21 +26,29 @@ import com.ipartek.proyectofinal.service.ServiceCurso;
 @Controller()
 public class AdminController {
 
+	/**
+	 * Logger del AdminController.
+	 */
 	private static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
+	/**
+	 * Inicializamos serviceCurso.
+	 */
 	@Autowired()
 	private ServiceCurso serviceCurso;
 
 	/**
-	 * Método de AdminController que lista todos los cursos
+	 * Método de AdminController que lista todos los cursos.
 	 * 
 	 * @param model
+	 *            atributos para la vista
+	 * @param locale
 	 *            atributos para la vista
 	 * @return al index.jsp
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String listar(Locale locale, Model model) {
-		LOG.info("Entrando en el backoffice! El locale del cliente es {}.", locale);
+		LOG.info("Entrando en el backoffice! " + "El locale del cliente es {}.", locale);
 
 		model.addAttribute("cursos", this.serviceCurso.listar());
 
@@ -56,7 +64,7 @@ public class AdminController {
 
 	/**
 	 * Método de AdminController que abre el formulario con un curso nuevo para
-	 * poder crearlo
+	 * poder crearlo.
 	 * 
 	 * @param model
 	 *            atributos para la vista

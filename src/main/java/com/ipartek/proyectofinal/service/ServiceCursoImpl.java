@@ -10,48 +10,57 @@ import com.ipartek.proyectofinal.domain.Curso;
 import com.ipartek.proyectofinal.repository.DAOCurso;
 import com.opencsv.CSVReader;
 
+/**
+ * Implementación de la interfaz serviceCurso
+ * 
+ * @author guillermo
+ *
+ */
 @Service(value = "serviceCurso")
 public class ServiceCursoImpl implements ServiceCurso {
 
 	@Autowired()
 	private DAOCurso daoCurso;
 
-	@Override
+	private static final int NUM_COL_NOMCURSO = 1;
+	private static final int NUM_COL_CODCURSO = 8;
+
+	@Override()
 	public List<Curso> listar() {
 		return this.daoCurso.getAll();
 	}
 
-	@Override
+	@Override()
 	public List<Curso> listar10Ultimos() {
 		return this.daoCurso.getLast10();
 	}
 
-	@Override
+	@Override()
 	public List<Curso> listarBusqueda(String textoFiltrar) {
 		return this.daoCurso.getSearch(textoFiltrar);
 	}
 
-	@Override
+	@Override()
 	public Curso buscarPorId(long id) {
 		return this.daoCurso.getById(id);
 	}
 
-	@Override
+	@Override()
 	public boolean crear(Curso curso) {
 		return this.daoCurso.insert(curso);
 	}
 
-	@Override
+	@Override()
 	public boolean modificar(Curso curso) {
 		return this.daoCurso.update(curso);
 	}
 
-	@Override
+	@Override()
 	public boolean eliminar(long id) {
 		return this.daoCurso.delete(id);
 	}
 
-	@Override
+	@Override()
 	public void migrarCSV(String rutaAcceso) {
 		try {
 
@@ -61,8 +70,8 @@ public class ServiceCursoImpl implements ServiceCurso {
 			for (String[] linea : misRegistros) {
 				if (contador != 0) {
 					Curso curso = new Curso();
-					curso.setNomCurso(linea[1]);
-					curso.setCodCurso(linea[8]);
+					curso.setNomCurso(linea[NUM_COL_NOMCURSO]);
+					curso.setCodCurso(linea[NUM_COL_CODCURSO]);
 					if (!"".equals(curso.getNomCurso()) && !"".equals(curso.getCodCurso())) {
 						this.daoCurso.insert(curso);
 					}

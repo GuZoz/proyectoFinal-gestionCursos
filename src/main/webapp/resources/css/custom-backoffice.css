@@ -69,7 +69,7 @@ h3 {
 
 #widget-listado-bo {
 	text-align: center;
-	background-color: rgba(255,200,210, 0.6);
+	background-color: rgb(255,225,240);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
@@ -77,7 +77,7 @@ h3 {
 
 #widget-creacion-bo {
 	text-align: center;
-	background-color: rgba(255,200,210, 0.6);
+	background-color: rgb(255,225,240);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
@@ -85,7 +85,7 @@ h3 {
 
 #widget-migracion-bo {
 	text-align: center;
-	background-color: rgba(255,200,210, 0.6);
+	background-color: rgb(255,225,240);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;

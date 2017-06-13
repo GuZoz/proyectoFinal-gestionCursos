@@ -15,8 +15,11 @@ import com.ipartek.proyectofinal.service.ServiceCurso;
 
 /**
  * Handles requests for the application home page.
+ * 
+ * @author guillermo
+ *
  */
-@Controller
+@Controller()
 public class HomeController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
@@ -25,7 +28,13 @@ public class HomeController {
 	private ServiceCurso serviceCurso;
 
 	/**
-	 * Selecciona la vista home y devuleve los 10 últimos cursos.
+	 * Selecciona la vista home y devuelve los 10 últimos cursos.
+	 *
+	 * @param locale
+	 *            Admite un parámetro una instancia de Locale
+	 * @param model
+	 *            Admite como parámetro una instancia de Model
+	 * @return Devuelve la vista "home.jsp"
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -38,9 +47,16 @@ public class HomeController {
 
 	/**
 	 * Selecciona la vista de detalle y devuelve el curso seleccionado.
+	 * 
+	 * @param id
+	 *            Admite un parámetro un atributo id que identifica la entrada
+	 *            de curso a mostrar
+	 * @param model
+	 *            Admite como parámetro una instancia de Model
+	 * @return Devuelve a la vista "detail.jsp"
 	 */
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-	public String irDetalleCurso(@PathVariable int id, Model model) {
+	public String irDetalleCurso(@PathVariable() int id, Model model) {
 
 		model.addAttribute("curso", this.serviceCurso.buscarPorId(id));
 

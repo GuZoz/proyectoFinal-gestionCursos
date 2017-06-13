@@ -54,6 +54,10 @@ h2 {
 	margin-bottom: 30px;
 }
 
+h3.lista-cursos {
+	color: white;
+}
+
 #widget-buscador {
 	padding: 20px 25px 50px 50px;
 }

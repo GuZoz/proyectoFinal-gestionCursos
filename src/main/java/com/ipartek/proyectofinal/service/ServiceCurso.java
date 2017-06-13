@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.ipartek.proyectofinal.domain.Curso;
 
+/**
+ * Interfaz del servicio de cursos, que contiene la lógica de negocio necesaria
+ * para la visualización y mantenimiento de los registros de curso
+ * 
+ * @author guillermo
+ *
+ */
 public interface ServiceCurso {
 
 	/**

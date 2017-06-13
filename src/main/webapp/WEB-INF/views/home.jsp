@@ -73,7 +73,7 @@
 					</ol>
 					</c:if>
 					<c:if test="${ultimosCursos.size()== 0}">
-					<h3> Ups! Hay un problema que impide mostrar los últimos cursos </h3>
+					<h3 class="lista-cursos"> Ups! Hay un problema que impide mostrar los últimos cursos </h3>
 					</c:if>
 				</div>
 			</div>

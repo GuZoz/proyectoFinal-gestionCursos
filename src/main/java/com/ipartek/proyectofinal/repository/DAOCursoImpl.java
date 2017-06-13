@@ -53,7 +53,7 @@ public class DAOCursoImpl implements DAOCurso {
 	private static final String SQL_UPDATE = "UPDATE `curso` SET `nom_curso`= ?, `cod_curso`= ? WHERE `id`= ?;";
 	private static final String SQL_DELETE = "DELETE FROM `curso` WHERE `id` = ?;";
 
-	@Override
+	@Override()
 	public List<Curso> getAll() {
 		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		try {
@@ -66,7 +66,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return listaCursos;
 	}
 
-	@Override
+	@Override()
 	public List<Curso> getLast10() {
 		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		try {
@@ -79,7 +79,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return listaCursos;
 	}
 
-	@Override
+	@Override()
 	public List<Curso> getSearch(String textoFiltrar) {
 
 		ArrayList<Curso> listaBusqueda = new ArrayList<Curso>();
@@ -101,7 +101,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return listaBusqueda;
 	}
 
-	@Override
+	@Override()
 	public Curso getById(long id) {
 		Curso curso = null;
 		try {
@@ -115,7 +115,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return curso;
 	}
 
-	@Override
+	@Override()
 	public boolean insert(final Curso curso) {
 		boolean resul = false;
 		try {
@@ -143,7 +143,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public boolean update(Curso curso) {
 		boolean resul = false;
 		int affectedRows = -1;
@@ -159,7 +159,7 @@ public class DAOCursoImpl implements DAOCurso {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public boolean delete(long id) {
 		boolean resul = false;
 		try {

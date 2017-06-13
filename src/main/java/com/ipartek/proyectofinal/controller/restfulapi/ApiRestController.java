@@ -13,21 +13,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ipartek.proyectofinal.domain.Curso;
 import com.ipartek.proyectofinal.service.ServiceCurso;
 
-@Controller
+/**
+ * Controlador de la Api Rest de la app de gestion de cursos. Permite buscar con
+ * la tecnologia autocomplete, recoginedo la llamada ajax desde la página home
+ * sin actualizarla
+ * 
+ * @author guillermo
+ *
+ */
+@Controller()
 @RequestMapping(value = "api/curso/")
 public class ApiRestController {
 
 	@Autowired()
 	private ServiceCurso serviceCurso;
 
+	/**
+	 * Método del controlador API REST para filtrar los cursos de la BBDD
+	 * 
+	 * @param textoFiltrar
+	 *            parametro con la variable string a filtrar
+	 * @return Devuelve un array de cursos en formato JSON
+	 */
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ArrayList<Curso> recuperarIngrediente(
+	public @ResponseBody() ArrayList<Curso> recuperarIngrediente(
 			@RequestParam(value = "filtro", required = true) String textoFiltrar) {
 
 		ArrayList<Curso> cursos = null;
 
 		if (textoFiltrar != null) {
-			cursos = (ArrayList<Curso>) serviceCurso.listarBusqueda(textoFiltrar);
+			cursos = (ArrayList<Curso>) this.serviceCurso.listarBusqueda(textoFiltrar);
 		}
 
 		return cursos;

@@ -72,7 +72,7 @@ public class Curso {
 	/**
 	 * Setter del atributo codCurso del POJO Curso
 	 * 
-	 * @param nomCurso
+	 * @param codCurso
 	 *            del POJO Curso
 	 */
 	public void setCodCurso(String codCurso) {

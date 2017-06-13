@@ -49,11 +49,15 @@
 			<form:form action="curso/crear" modelAttribute="curso">
 				<label>Id:</label>
 				<form:input class="form-control form-custom" path="id" readonly="true"/>
+				
 				<label>Nombre del Curso:</label>
-				<form:input class="form-control form-custom" path="nomCurso"/>
 				<form:errors path="nomCurso" cssStyle="color:red;"/>
+				<form:input class="form-control form-custom" path="nomCurso"/>
+					
 				<label>Código del Curso:</label>
+				<form:errors path="codCurso" cssStyle="color:red;"/>
 				<form:input class="form-control form-custom" path="codCurso"/>
+				
 				<hr>
 				<c:choose>
 					<c:when test="${curso.id == -1}">

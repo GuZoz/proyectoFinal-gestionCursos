@@ -2,11 +2,14 @@ package com.ipartek.proyectofinal.controller;
 
 import java.util.Locale;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,8 +102,13 @@ public class AdminController {
 	 * @return index.jsp vuelve al index de admin
 	 */
 	@RequestMapping(value = "curso/crear", method = RequestMethod.POST)
-	public String crear(Model model, Curso curso) {
+	public String crear(Model model, @Valid() Curso curso, BindingResult bindingResult) {
 		LOG.info("Creando/modificando registro de curso desde Post");
+
+		if (bindingResult.hasErrors()) {
+			return "admin/form";
+		}
+
 		String msg = "Error al modificar/crear el nuevo Curso";
 		if (curso.getId() == -1) {
 			this.serviceCurso.crear(curso);

@@ -153,6 +153,9 @@ hr {
 .ui-menu {
 	z-index: 1000 !important;
 	background-color: rgba(122,150,234, 0.9) !important;  /*  #7a96ea  light navy blue*/
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 70vh;
 }
 
 .ui-state-hover, .ui-state-active {

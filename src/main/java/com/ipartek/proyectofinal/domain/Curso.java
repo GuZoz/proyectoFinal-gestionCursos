@@ -1,5 +1,7 @@
 package com.ipartek.proyectofinal.domain;
 
+import javax.validation.constraints.Size;
+
 /**
  * Clase POJO de Curso
  * 
@@ -8,8 +10,17 @@ package com.ipartek.proyectofinal.domain;
  */
 public class Curso {
 
+	private static final int MIN_NOMCURSO = 3;
+	private static final int MAX_NOMCURSO = 255;
+	private static final int MIN_CODCURSO = 3;
+	private static final int MAX_CODCURSO = 50;
+
 	private long id;
+
+	@Size(message = "Debe tener entre {min} y {max} caracteres", min = MIN_NOMCURSO, max = MAX_NOMCURSO)
 	private String nomCurso;
+
+	@Size(message = "Debe tener entre {min} y {max} caracteres", min = MIN_CODCURSO, max = MAX_CODCURSO)
 	private String codCurso;
 
 	/**

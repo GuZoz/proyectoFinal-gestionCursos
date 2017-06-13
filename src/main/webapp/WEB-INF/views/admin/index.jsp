@@ -54,7 +54,7 @@
   			<div class="col-md-8 col-sm-12">
 	
 				<c:if test="${not empty msg}">
-					<div class="alert alert-success alert-dismissable">
+					<div class="alert alert-info alert-dismissable">
 			 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			 				${msg}
 					</div>
@@ -95,17 +95,18 @@
 					
 					<div class="col-md-11 col-sm-5" id="widget-migracion-bo">
 						<h2>Panel de migración de BBDD</h2>
-						<span>
-						<a href="admin/migrar" class="btn-widget-backoffice">Migrar</a>
-						</span>
+						
+						<form action="admin/migrar" method="get">
+						<label>Ruta de acceso:</label>
+							<input class="form-control form-custom" type="text" name="ruta" value="c:\\cursos.csv"/>
+							<input type="submit" class="btn-widget-backoffice" value="Migrar">
+						</form>
 					</div>
 					
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<p> El tiempo en el servidor es ${serverTime}. </p>		
+	</div>	
 
 	<!-- Script de libreria JQuery para Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

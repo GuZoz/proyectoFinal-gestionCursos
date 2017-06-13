@@ -1,7 +1,5 @@
 package com.ipartek.proyectofinal.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -12,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ipartek.proyectofinal.domain.Curso;
 import com.ipartek.proyectofinal.service.ServiceCurso;
@@ -51,13 +50,6 @@ public class AdminController {
 		LOG.info("Entrando en el backoffice! " + "El locale del cliente es {}.", locale);
 
 		model.addAttribute("cursos", this.serviceCurso.listar());
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
 
 		return "admin/index";
 	}
@@ -152,11 +144,12 @@ public class AdminController {
 	 * @return index.jsp vuelve al index de admin
 	 */
 	@RequestMapping(value = "/admin/migrar", method = RequestMethod.GET)
-	public String migrarCSVaBBDD(Model model) {
+	public String migrarCSVaBBDD(Model model, @RequestParam(value = "ruta", required = true) String rutaAccesoCSV) {
 		boolean resulMigracion = false;
-		resulMigracion = this.serviceCurso.migrarCSV("c:\\cursos.csv");
+		resulMigracion = this.serviceCurso.migrarCSV(rutaAccesoCSV);
 		String msg = "Error al migrar el archivo CSV a la base de datos. "
-				+ "Compruebe la ruta de acceso al archivo y su contenido";
+				+ "Compruebe que la ruta de acceso al archivo sea correcta y "
+				+ "no contenga espacios, y que el contenido del archivo y " + " formato sean adecuados ";
 		if (resulMigracion) {
 			msg = "Migracion del archivo CSV a la base de datos realizada con éxito";
 		}

@@ -1,5 +1,6 @@
 package com.ipartek.proyectofinal.service;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
@@ -61,7 +62,9 @@ public class ServiceCursoImpl implements ServiceCurso {
 	}
 
 	@Override()
-	public void migrarCSV(String rutaAcceso) {
+	public boolean migrarCSV(String rutaAcceso) {
+		boolean resul = false;
+		
 		try {
 
 			int contador = 0;
@@ -79,11 +82,13 @@ public class ServiceCursoImpl implements ServiceCurso {
 				contador++;
 			}
 			reader.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+			resul = true;
+		} catch (FileNotFoundException fileNotFoundException) {
+			fileNotFoundException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
 		}
-
+		return resul;
 	}
 
 }

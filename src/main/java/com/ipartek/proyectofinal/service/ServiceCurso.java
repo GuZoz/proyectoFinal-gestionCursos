@@ -93,6 +93,6 @@ public interface ServiceCurso {
 	 * @param rutaAcceso
 	 *            variable string con la ruta de acceso al archivo csv a migrar
 	 */
-	void migrarCSV(String rutaAcceso);
+	boolean migrarCSV(String rutaAcceso);
 
 }

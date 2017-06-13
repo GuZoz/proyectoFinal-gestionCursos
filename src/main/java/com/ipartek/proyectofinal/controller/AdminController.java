@@ -153,9 +153,14 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/admin/migrar", method = RequestMethod.GET)
 	public String migrarCSVaBBDD(Model model) {
-
-		this.serviceCurso.migrarCSV("c:\\cursos.csv");
-
+		boolean resulMigracion = false;
+		resulMigracion = this.serviceCurso.migrarCSV("c:\\cursos.csv");
+		String msg = "Error al migrar el archivo CSV a la base de datos. "
+				+ "Compruebe la ruta de acceso al archivo y su contenido";
+		if (resulMigracion) {
+			msg = "Migracion del archivo CSV a la base de datos realizada con éxito";
+		}
+		model.addAttribute("msg", msg);
 		model.addAttribute("cursos", this.serviceCurso.listar());
 
 		return "admin/index";

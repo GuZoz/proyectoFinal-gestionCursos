@@ -97,8 +97,8 @@
 						<h2>Panel de migración de BBDD</h2>
 						
 						<form action="admin/migrar" method="get">
-						<label>Ruta de acceso:</label>
-							<input class="form-control form-custom" type="text" name="ruta" value="c:\\cursos.csv"/>
+						<label for="rutaCSV">Ruta de acceso:</label>
+							<input class="form-control form-custom" type="text" id="rutaCSV" name="ruta" value="c:\\cursos.csv"/>
 							<input type="submit" class="btn-widget-backoffice" value="Migrar">
 						</form>
 					</div>

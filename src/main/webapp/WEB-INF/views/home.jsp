@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href="/proyectofinal/">
-	<title>Gestión de Cursos</title>
+	<title>Cursos Ipartek</title>
 	
 	<link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="resources/img/favicon.ico" type="image/x-icon">
@@ -27,7 +27,7 @@
 		<nav class="navbar navbar-default navbar-custom navbar-static-top">
    			<div class="container">
    				<div class="navbar-header navbar-header-custom">
-   					<h1 >Gestión de Cursos</h1>
+   					<h1>Cursos Ipartek</h1>
     			</div>
    				<ul class="nav navbar-nav navbar-nav-custom navbar-right">
 					<li><a class="navbar-btn-custom" href="" >Home</a></li>

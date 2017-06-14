@@ -49,9 +49,10 @@ public class AdminController {
 	 * @return al index.jsp
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String listar(Locale locale, Model model) {
+	public String listar(Locale locale, Model model, @RequestParam(value = "msg", required = false) String msg) {
 		LOG.info("Entrando en el backoffice! " + "El locale del cliente es {}.", locale);
 
+		model.addAttribute("msg", msg);
 		model.addAttribute("cursos", this.serviceCurso.listar());
 
 		return "admin/index";
@@ -67,7 +68,7 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/admin/curso/edit", method = RequestMethod.GET)
 	public String formularioCrear(Model model) {
-		LOG.info("Creando nuevo curso desde el backoffice");
+		LOG.info("Creando nuevo curso en la base de datos");
 
 		model.addAttribute("curso", new Curso());
 		return "admin/form";
@@ -85,7 +86,7 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/admin/curso/edit/{id}", method = RequestMethod.GET)
 	public String formularioEditar(Model model, @PathVariable() int id) {
-		LOG.info("Editando curso preexistente desde el backoffice. Id curso -> " + id);
+		LOG.info("Editando curso preexistente en la base de datos. Id curso -> " + id);
 
 		model.addAttribute("curso", this.serviceCurso.buscarPorId(id));
 		return "admin/form";
@@ -109,17 +110,21 @@ public class AdminController {
 			return "admin/form";
 		}
 
-		String msg = "Error al modificar/crear el nuevo Curso";
+		String msg = "Error al modificar o crear el nuevo curso";
 		if (curso.getId() == -1) {
-			this.serviceCurso.crear(curso);
-			msg = "Curso creado con exito";
+			boolean resulCrearCurso = this.serviceCurso.crear(curso);
+			if (resulCrearCurso) {
+				msg = "Curso creado con exito";
+			}
 		} else {
-			this.serviceCurso.modificar(curso);
-			msg = "Curso modificado con exito";
+			boolean resulModificarCurso = this.serviceCurso.modificar(curso);
+			if (resulModificarCurso) {
+				msg = "Curso modificado con exito";
+			}
 		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("cursos", this.serviceCurso.listar());
-		return "admin/index";
+		return "redirect: ../admin";
 	}
 
 	/**
@@ -136,12 +141,12 @@ public class AdminController {
 		LOG.info("Eliminando registro de curso desde Post");
 		String msg = "Error al eliminar el registro de curso";
 		if (this.serviceCurso.eliminar(curso.getId())) {
-			msg = "Curso eliminado correctamente desde el backoffice";
+			msg = "Curso eliminado correctamente de la base de datos";
 		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("curso", new Curso());
 		model.addAttribute("cursos", this.serviceCurso.listar());
-		return "admin/index";
+		return "redirect: ../admin";
 	}
 
 	/**
@@ -157,14 +162,14 @@ public class AdminController {
 		resulMigracion = this.serviceCurso.migrarCSV(rutaAccesoCSV);
 		String msg = "Error al migrar el archivo CSV a la base de datos. "
 				+ "Compruebe que la ruta de acceso al archivo sea correcta y "
-				+ "no contenga espacios, y que el contenido del archivo y " + " formato sean adecuados ";
+				+ "no contenga espacios, y que el contenido del archivo y su " + " formato sean adecuados ";
 		if (resulMigracion) {
 			msg = "Migracion del archivo CSV a la base de datos realizada con éxito";
 		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("cursos", this.serviceCurso.listar());
 
-		return "admin/index";
+		return "redirect: ../admin";
 	}
 
 }

@@ -7,7 +7,7 @@
 	
 	<base href="/proyectofinal/">
 	
-	<title>Vista de Formulario de Login</title>
+	<title>Login</title>
 	
 	<!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

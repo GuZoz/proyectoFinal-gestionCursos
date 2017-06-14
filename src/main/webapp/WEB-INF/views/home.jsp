@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href="/proyectofinal/">
-	<title>Home - Gestión de cursos</title>
+	<title>Gestión de Cursos</title>
 	
 	<link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="resources/img/favicon.ico" type="image/x-icon">

@@ -8,7 +8,7 @@
 	
 	<base href="/proyectofinal/">
 	
-	<title>Vista de Error de Login</title>
+	<title>Filtro de acceso</title>
 	
 	<!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

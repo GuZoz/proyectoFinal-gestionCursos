@@ -2,15 +2,23 @@
 ************************************************************/
 
 body {
-	background-color: #7a96ea; /*light navy blue*/
-	color: navy;
+	background-color: #8db3d3; /*light steelblue*/
+	color: #2a4e6c; /*dark steelblue*/
 	font-family: 'Georgia', cursive;
+}
+
+a {
+	color: #ff5a77; /*dark pink*/
+}
+
+a:hover {
+	color: steelblue;
 }
 
 .navbar-custom {
     color: pink;
     border-bottom: solid 2px pink;
-    background-color: mediumblue;
+    background-color: steelblue;
 }
 
 .navbar-header-custom {
@@ -33,7 +41,7 @@ h1 {
 
 .navbar-search-custom label {
 	color: pink;
-	background-color: mediumblue;
+	background-color: steelblue;
 	border: solid 2px pink;
 	border-radius: 5px;
 }
@@ -52,7 +60,7 @@ h1 {
 }
 
 .navbar-btn-custom:hover {
-	color: navy !important;
+	color: steelblue !important;
 	background-color: pink !important;
 }
 
@@ -69,7 +77,7 @@ h3 {
 
 #widget-listado-bo {
 	text-align: center;
-	background-color: rgb(255,230,245);
+	background-color: rgba(255,255,255,0.5);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
@@ -77,7 +85,7 @@ h3 {
 
 #widget-creacion-bo {
 	text-align: center;
-	background-color: rgb(255,230,245);
+	background-color: rgba(255,255,255,0.5);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
@@ -85,7 +93,7 @@ h3 {
 
 #widget-migracion-bo {
 	text-align: center;
-	background-color: rgb(255,230,245);
+	background-color: rgba(255,255,255,0.5);
 	border-radius: 5px;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
@@ -99,11 +107,11 @@ h3 {
 	margin-top: 20px;
 	font-size: 1.1em;
 	color: pink;
-	background-color: mediumblue;;
+	background-color: steelblue;
 }
 
 .btn-widget-backoffice:hover {
-	color: mediumblue;
+	color: steelblue;
 	background-color: pink;
 	text-decoration: none;
 }
@@ -116,14 +124,14 @@ h3 {
 	margin: 0 auto;
 	max-width: 750px;
 	margin-top: 100px;
-	background-color: rgb(255,230,245) !important;
+	background-color: rgba(255,255,255,0.5) !important;
 	border-radius: 5px;
 	padding: 40px;
 	font-size: 1.3em;
 }
 
 hr {
-	border-color: navy;
+	border-color: steelblue;
 }
 
 .form-custom {
@@ -138,11 +146,11 @@ hr {
 	margin-top: 20px;
 	font-size: 1.1em !important;
 	color: pink;
-	background-color: red;
+	background-color: #cc0000; /*dark red*/
 }
 
 .btn-widget-bo-delete:hover {
-	color: mediumblue;
+	color: steelblue;
 	background-color: pink;
 	text-decoration: none;
 }
@@ -152,7 +160,7 @@ hr {
 
 .ui-menu {
 	z-index: 1000 !important;
-	background-color: rgba(122,150,234, 0.9) !important;  /*  #7a96ea  light navy blue*/
+	background-color: rgba(178, 204, 225, 0.9) !important;  /*  #7a96ea  light steelblue*/
 	overflow-y: scroll;
 	overflow-x: hidden;
 	max-height: 70vh;
@@ -160,5 +168,6 @@ hr {
 
 .ui-state-hover, .ui-state-active {
 	background-color: pink !important; 
-	color: mediumblue !important;
+	border-color: steelblue !important;
+	color: steelblue !important;
 }

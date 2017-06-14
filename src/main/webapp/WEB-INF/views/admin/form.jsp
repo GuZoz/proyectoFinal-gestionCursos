@@ -12,7 +12,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href="/proyectofinal/">
-	<title>Backoffice - CRUD de Cursos</title>
+	<title>Backoffice - Formulario de Cursos</title>
 
 	<!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href="/proyectofinal/">
-	<title>Home - Detalle de curso</title>
+	<title>Detalle de curso</title>
 	
 	<!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

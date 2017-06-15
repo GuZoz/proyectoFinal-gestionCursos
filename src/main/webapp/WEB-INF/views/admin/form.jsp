@@ -68,10 +68,12 @@
 					</c:otherwise>
 				</c:choose>
 			</form:form>
-			<form:form action="curso/eliminar" modelAttribute="curso">
-				<form:hidden path="id"/>
-				<form:button type="submit" class="btn-widget-bo-delete">Eliminar</form:button>
-			</form:form>
+			<c:if test="${curso.id != -1}">
+				<form:form action="curso/eliminar" modelAttribute="curso">
+					<form:hidden path="id"/>
+					<form:button type="submit" class="btn-widget-bo-delete">Eliminar</form:button>
+				</form:form>
+			</c:if>
 	
 		</div>
 	</div>

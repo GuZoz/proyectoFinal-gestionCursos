@@ -32,10 +32,10 @@ Es necesario tener instalado el siguiente entorno para ejecutar la App:
 ## Descripción de tecnologías empleadas
 
 La aplicación web es un proyecto web escrito en lenguaje Java y tecnologías WEB (HTML, CSS y JavaScript), está basado en la plataforma Java, usa Maven como gestor de dependencias, se desarrolla en el marco de Spring desde el IDE Eclipse (según la plantilla de Spring Legacy Project),  y se apoya en las siguientes tecnologías y librerías de Java, Javascript y CSS3:
-··* Marco de la plataforma de Java Spring Framework, utilizando los módulos:
-··* SpringFramework WebMVC
-··* SpringFramework Security
-··* Spring JDBC (API de Java - Java Database Connectivity)
+* Marco de la plataforma de Java Spring Framework, utilizando los módulos:
+    * SpringFramework WebMVC
+    * SpringFramework Security
+    * Spring JDBC (API de Java - Java Database Connectivity)
 * Libreria de Java – Mysql-Connector-Java (Conector MySQL para JDBC)
 * Libreria de Java – AspectJ RT (Para aspectos en Java)
 * Libreria de Java – Jackson-Mapper-ASL (Interpretador de JSON para la API REST)
